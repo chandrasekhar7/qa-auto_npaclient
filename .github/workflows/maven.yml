@@ -29,7 +29,7 @@ jobs:
         cache: maven
     - uses: browser-actions/setup-chrome@v1
       with:
-         chrome-version: 111.0.5563.147
+         chrome-version: 827102
     - if: runner.os == 'Linux'
       run: chrome --version
 
