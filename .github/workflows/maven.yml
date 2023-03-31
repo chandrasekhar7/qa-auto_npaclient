@@ -18,11 +18,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: ['chrome', 'firefox', 'edge']
-
+    
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -32,16 +28,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-
+    - uses: abhi1693/setup-browser@v0.3.4
+      with:
+        browser: chrome
+        version: latest
     - name: Build with Maven
       run: mvn clean test --file pom.xml
-      env:
-          BROWSER: ${{ matrix.browser }}
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: ${{ matrix.browser }}
-        path: screenshots/
+     
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
    # - name: Update dependency graph
