@@ -27,7 +27,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - uses: ./
+    - uses: browser-actions/setup-chrome@v1
       with:
          chrome-version: 111.0.5563.147
     - if: runner.os == 'Linux'
