@@ -25,11 +25,9 @@ jobs:
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-    - name: Start selenoid
-      uses: Xotabu4/selenoid-github-action@v2
-      with:
-        selenoid-start-arguments: |
-          --args "-timeout 60s"
+    - name: chromeinstall
+      uses: browser-actions/setup-chrome@v1
+    - run: chrome --version
     - uses: actions/checkout@v3
 
     - name: Build with Maven
