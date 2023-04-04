@@ -33,7 +33,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build with Maven
-      run: mvn clean test --file pom.xml
+      run: mvn test -DargLine="-DtestURL=http://localhost"
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
