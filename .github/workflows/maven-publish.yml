@@ -12,6 +12,8 @@ jobs:
   build:
 
     runs-on: windows-latest
+    env: 
+      url: http://localhost
     permissions:
       contents: read
       packages: write
