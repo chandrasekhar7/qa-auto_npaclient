@@ -36,4 +36,4 @@ jobs:
           DISPLAY: ":99"
         run: |
           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          mvn test -Dwebdriver.chrome.driver=/usr/bin/chromedriver
+          mvn test -Dwebdriver.chrome.driver=/usr/bin/chromedriver -DargLine="-DtestURL=http://localhost"
