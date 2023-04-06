@@ -33,7 +33,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build with Maven
-      run: mvn test -DargLine="-DtestURL=http://localhost"
+      run: mvn --batch-mode -Dmaven.test.failure.ignore=true
 
     - name: Report
       uses: dorny/test-reporter@v1
