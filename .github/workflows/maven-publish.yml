@@ -35,7 +35,11 @@ jobs:
     - name: Build with Maven
       run: mvn test -DargLine="-DtestURL=http://localhost"
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    - name: Report
+      uses: dorny/test-reporter@v1
+      if: always(
+      with:
+        name: Maven Tests
+        path: target/surefire-reports/*.html
+        reporter: java-junit
+        fail-on-error: true
