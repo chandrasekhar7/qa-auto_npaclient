@@ -34,7 +34,7 @@ jobs:
     - name: Build
       run: mvn --batch-mode -DskipTests package
     - name: Build with Maven
-      run: mvn --batch-mode -Dmaven.test.failure.ignore=true
+      run: mvn test
 
     - name: Report
       uses: dorny/test-reporter@v1
