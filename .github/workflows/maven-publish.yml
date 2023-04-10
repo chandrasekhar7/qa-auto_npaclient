@@ -41,6 +41,6 @@ jobs:
       if: always()
       with:
         name: Maven Tests
-        path: source/test/*.html
+        path: reports*/test-output/Spark/*.html
         reporter: java-junit
         fail-on-error: true
